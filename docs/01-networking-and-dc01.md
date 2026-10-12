@@ -34,17 +34,33 @@ Not every test worked the first time. At one point PowerShell ping attempts fail
 
 I later captured successful checks. I still want to document the exact fix only after I can reproduce and explain it accurately.
 
-## Evidence checklist
+## Screenshots from this stage
 
-I saved these screenshots in my working evidence folder. I'll publish them after a final review for accuracy and sensitive information.
+These are the screenshots I captured while preparing DC01. They show my configuration at the time, not proof that AD DS or DNS services are installed.
 
-1. `01-vmware-vmnet1-isolation.png` — Windows Server VM adapter assigned to VMnet1.
-2. `02-dc01-ipv4-dns-gui.png` — IPv4 and DNS settings.
-3. `03_01-powershell-ip-dns-validation_1.png` — server network and connectivity checks.
-4. `03_02-powershell-ip-dns-validation_2.png` — successful ping to the host-only interface.
-5. `04-dc01-pre-adds-snapshot.png` — snapshot before installing AD DS.
+**1. VMware network adapter on VMnet1**
 
-**Still to capture:** Virtual Network Editor showing the actual VMnet1 network settings and a final, current PowerShell verification screen. These will help someone else follow my setup without guessing.
+![VMware adapter assigned to VMnet1](../evidence/01-vmware-vmnet1-isolation.png)
+
+**2. Static IP and preferred DNS**
+
+![DC01 IPv4 properties](../evidence/02-dc01-ipv4-dns-gui.png)
+
+**3. PowerShell configuration and host connectivity**
+
+![DC01 ipconfig and Test-NetConnection to VMnet1 host](../evidence/03_01-powershell-ip-dns-validation_1.png)
+
+**4. Local address ping and IPv4/DNS checks**
+
+![DC01 pinging its own IP and listing IPv4 DNS settings](../evidence/03_02-powershell-ip-dns-validation_2.png)
+
+The ping in screenshot 4 is to DC01's own address. It confirms the local TCP/IP stack responds, but doesn't establish connectivity to another VM.
+
+**5. Snapshot before AD DS**
+
+![DC01 VMware snapshot](../evidence/04-dc01-pre-adds-snapshot.png)
+
+**Still to capture:** Virtual Network Editor showing VMnet1 settings, plus a fresh end-to-end test to another VM after it is configured.
 
 ## Next step
 
