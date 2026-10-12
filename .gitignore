@@ -1,0 +1,14 @@
+*.key
+*.pem
+*.pfx
+*.p12
+*.kirbi
+*.ccache
+*.dmp
+*.pcap
+*.pcapng
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
