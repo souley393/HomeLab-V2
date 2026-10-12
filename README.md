@@ -6,7 +6,7 @@ The plan is to build a small Active Directory environment in VMware, send Window
 
 ## Current progress
 
-**Phase 1 — VMware networking and Windows Server preparation:** I configured DC01 on the VMnet1 host-only network, gave it a static address, checked its network settings in PowerShell, and saved a snapshot before installing Active Directory. My screenshots are being reviewed before I publish them here.
+**Phase 1 — VMware networking and Windows Server preparation:** I configured DC01 on the VMnet1 host-only network, gave it a static address, checked its network settings in PowerShell, and saved a snapshot before installing Active Directory. I captured five screenshots of the setup and validation steps. They're linked in the Phase 1 notes.
 
 Read my [Phase 1 notes](docs/01-networking-and-dc01.md).
 
@@ -25,7 +25,7 @@ VMnet1 uses `192.168.217.0/24` for host-only connectivity. I'll use NAT only whe
 
 ## What's next
 
-- Finish reviewing and upload the screenshots for Phase 1.
+- Capture the VMware Virtual Network Editor settings and repeat the final connectivity checks.
 - Install Active Directory Domain Services and promote DC01 for `lab.local`.
 - Join the Windows client and configure Group Policy and useful audit events.
 - Set up Wazuh on Ubuntu and bring in endpoint logs.
