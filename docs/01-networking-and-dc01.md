@@ -1,4 +1,4 @@
-# Phase 1 — Networking and getting DC01 ready
+# Phase 1  Networking and getting DC01 ready
 
 ## Why I started here
 
