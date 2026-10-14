@@ -22,7 +22,7 @@ While checking my new domain controller after promotion, I ran `dcdiag /q`. It r
 
 Later DFSR events showed successful Active Directory configuration updates and service initialization. That suggests the earlier errors were related to initial startup, rather than a failure still affecting SYSVOL.
 
-I **haven't marked the issue fully resolved** because I still need a clean follow-up `dcdiag` result. I also haven't verified replication between multiple domain controllers; this is a single-DC lab.
+A later `dcdiag /test:sysvolcheck` passed, which provides additional evidence that SYSVOL is available. I **haven't marked the DFSREvent warning fully resolved** because I still need a clean follow-up `dcdiag /q` or `dcdiag /test:DFSREvent` result. I also haven't verified replication between multiple domain controllers; this is a single-DC lab.
 
 ## What I'll do next
 

@@ -54,9 +54,11 @@ I wrote up the investigation separately: [Case study — DFS Replication initial
 ## Still to verify
 
 - Re-run `dcdiag /q` and save the current output, especially the DFSREvent test.
-- Run `dcdiag /test:dns /v`, `dcdiag /test:advertising`, and `dcdiag /test:sysvolcheck`.
+- **Completed:** `dcdiag /test:dns /v` passed, including DNS authentication, basic, forwarding/root hints, delegation, dynamic updates and record registration.
+- **Completed:** `dcdiag /test:sysvolcheck` reported `DC01 passed test SysVolCheck`.
+- Still to run or capture: `dcdiag /test:advertising` and a fresh `dcdiag /q` to determine whether the earlier DFSREvent warning has cleared.
 - Check the Windows Time configuration. `w32tm /query /status` showed `Local CMOS Clock` as the source, so I need a reliable time plan before domain-joining other machines.
-- Add the original screenshots to this repository after final review. The wizard screenshots for new-forest options and prerequisite checks were not captured.
+- Publish the saved AD DS installation and verification screenshots after final review. The wizard screenshots for new-forest options and prerequisite checks were not captured.
 
 ## Next: Phase 2, Step 4 — Active Directory structure
 
