@@ -51,6 +51,30 @@ During validation, `dcdiag /q` reported a **DFSREvent** failure. I checked the D
 
 I wrote up the investigation separately: [Case study — DFS Replication initialization warning](../case-studies/dfsr-initialization-warning.md).
 
+## Screenshot evidence
+
+These screenshots were captured from the actual DC01 deployment and are stored in the repository's [evidence folder](../evidence/). The installation-wizard screens for new forest settings and prerequisites were not retained; the post-installation PowerShell checks document the resulting configuration.
+
+**AD DS role installation**
+
+![AD DS role installation completed](../evidence/AD_DS%20role%20installation%20completed.png)
+
+**Domain and domain controller validation**
+
+![Get-ADDomain output](../evidence/Get-ADDomain%20output.png)
+
+![Get-ADDomainController output](../evidence/Get-ADDomainController%20output.png)
+
+**DNS and AD services**
+
+![DNS and service verification](../evidence/DNS%20and%20service%20verification.png)
+
+![DNS verification](../evidence/Test2-1_Verify%20DNS.png)
+
+![Kerberos and AD services](../evidence/Test3-1_Verify%20Kerberos%20and%20AD%20services.png)
+
+Additional validation screenshots: [Active Directory test](../evidence/Test1-1_Verify%20Active%20Directory.png), [AD test continuation 1](../evidence/Test1-2.png), [AD test continuation 2](../evidence/Test1-3.png), [DNS test continuation](../evidence/Test2-2.png), [Kerberos test continuation 1](../evidence/Test3-2.png), [continuation 2](../evidence/Test3-3.png), [continuation 3](../evidence/Test3-4.png).
+
 ## Still to verify
 
 - Re-run `dcdiag /q` and save the current output, especially the DFSREvent test.
@@ -58,7 +82,7 @@ I wrote up the investigation separately: [Case study — DFS Replication initial
 - **Completed:** `dcdiag /test:sysvolcheck` reported `DC01 passed test SysVolCheck`.
 - Still to run or capture: `dcdiag /test:advertising` and a fresh `dcdiag /q` to determine whether the earlier DFSREvent warning has cleared.
 - Check the Windows Time configuration. `w32tm /query /status` showed `Local CMOS Clock` as the source, so I need a reliable time plan before domain-joining other machines.
-- Publish the saved AD DS installation and verification screenshots after final review. The wizard screenshots for new-forest options and prerequisite checks were not captured.
+- The AD DS installation and verification screenshots are now published. The wizard screenshots for new-forest options and prerequisite checks were not captured.
 
 ## Next: Phase 2, Step 4 — Active Directory structure
 
