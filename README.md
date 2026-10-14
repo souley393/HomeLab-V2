@@ -10,6 +10,10 @@ The plan is to build a small Active Directory environment in VMware, send Window
 
 Read my [Phase 1 notes](docs/01-networking-and-dc01.md).
 
+**Phase 2 — Active Directory:** I created the `lab.local` domain and verified core services. Final health checks are still pending.
+
+[Phase 2 notes](docs/02-active-directory-domain-controller.md) · [DFSR warning case study](case-studies/dfsr-initialization-warning.md)
+
 ## Lab layout
 
 | Machine | Planned address | Purpose |
@@ -26,7 +30,7 @@ VMnet1 uses `192.168.217.0/24` for host-only connectivity. I'll use NAT only whe
 ## What's next
 
 - Capture the VMware Virtual Network Editor settings and repeat the final connectivity checks.
-- Install Active Directory Domain Services and promote DC01 for `lab.local`.
+- Finish DC health checks and build the OU, user, and group structure.
 - Join the Windows client and configure Group Policy and useful audit events.
 - Set up Wazuh on Ubuntu and bring in endpoint logs.
 - Run controlled tests and document the alerts, evidence, and anything I missed.
