@@ -10,9 +10,9 @@ The plan is to build a small Active Directory environment in VMware, send Window
 
 Read my [Phase 1 notes](docs/01-networking-and-dc01.md).
 
-**Phase 2 — Active Directory:** I created the `lab.local` domain and verified core services. Final health checks are still pending.
+**Phase 2 — Active Directory:** I created the `lab.local` domain and verified core services. SYSVOL and NETLOGON tests passed, though `dcdiag /q` still reports a DFSREvent warning within its historical event window. I also created and verified six top-level Organizational Units for IT, employees, workstations, member servers, security groups, and service accounts.
 
-[Phase 2 notes](docs/02-active-directory-domain-controller.md) · [DFSR warning case study](case-studies/dfsr-initialization-warning.md)
+[Domain Controller notes](docs/02-active-directory-domain-controller.md) · [OU structure and verification](docs/03-active-directory-ou-structure.md) · [DFSR warning case study](case-studies/dfsr-initialization-warning.md)
 
 ## Lab layout
 
@@ -29,8 +29,8 @@ VMnet1 uses `192.168.217.0/24` for host-only connectivity. I'll use NAT only whe
 
 ## What's next
 
-- Capture the VMware Virtual Network Editor settings and repeat the final connectivity checks.
-- Finish DC health checks and build the OU, user, and group structure.
+- Finish remaining DC health checks and confirm the DFSREvent warning has cleared.
+- Create test user accounts and role-based security groups in the new OU structure.
 - Join the Windows client and configure Group Policy and useful audit events.
 - Set up Wazuh on Ubuntu and bring in endpoint logs.
 - Run controlled tests and document the alerts, evidence, and anything I missed.
