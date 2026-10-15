@@ -47,7 +47,25 @@ The output listed all six OUs with the expected distinguished names and `Protect
 
 ## Evidence
 
-I captured screenshots for each creation milestone, the completed six-OU tree, and the PowerShell validation. **Screenshot files are awaiting upload to the repository's `evidence/` directory.** The verification findings above come from those captured results.
+I captured screenshots for each creation milestone, the completed six-OU tree, and the PowerShell validation. These files are published in the repository:
+
+| Evidence | Screenshot |
+| --- | --- |
+| IT OU | [View](../evidence/phase-02/phase2-04-it-ou-created.png.png) |
+| Employees OU | [View](../evidence/phase-02/phase2-05-employees-ou-created.png) |
+| Workstations OU | [View](../evidence/phase-02/phase2-06-workstations-ou-created.png) |
+| Servers OU | [View](../evidence/phase-02/phase2-07-servers-ou-created.png) |
+| Security-Groups OU | [View](../evidence/phase-02/phase2-08-security-groups-ou-created.png) |
+| Complete six-OU structure | [View](../evidence/phase-02/phase2-09-complete-ou-structure.png) |
+| PowerShell verification | [View](../evidence/phase-02/phase2-10-ou-powershell-verification.png) |
+
+### Final structure
+
+![Six organizational units in Active Directory Users and Computers](../evidence/phase-02/phase2-09-complete-ou-structure.png)
+
+### PowerShell verification
+
+![PowerShell showing all six OUs and accidental deletion protection](../evidence/phase-02/phase2-10-ou-powershell-verification.png)
 
 ## Security notes
 
