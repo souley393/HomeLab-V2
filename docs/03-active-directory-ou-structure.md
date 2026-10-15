@@ -30,7 +30,7 @@ I created them in this order: IT, Employees, Workstations, Servers, Security-Gro
 
 ## Validation
 
-I used PowerShell to list the six top-level OUs and check their protection status:
+I used PowerShell to list the six top-level OUs and their distinguished names:
 
 ```powershell
 Get-ADOrganizationalUnit -Filter * -SearchBase "DC=lab,DC=local" `
@@ -43,7 +43,7 @@ Get-ADOrganizationalUnit -Filter * -SearchBase "DC=lab,DC=local" `
   Select-Object Name, DistinguishedName, ProtectedFromAccidentalDeletion
 ```
 
-The output listed all six OUs with the expected distinguished names and `ProtectedFromAccidentalDeletion = True`. I also checked the completed OU tree in Active Directory Users and Computers.
+The output listed all six OUs with the expected distinguished names. The captured output did not visibly confirm the accidental-deletion protection property; that setting should be rechecked separately using `-Properties ProtectedFromAccidentalDeletion`. I also checked the completed OU tree in Active Directory Users and Computers.
 
 ## Evidence
 
@@ -51,7 +51,7 @@ I captured screenshots for each creation milestone, the completed six-OU tree, a
 
 | Evidence | Screenshot |
 | --- | --- |
-| IT OU | [View](../evidence/phase-02/phase2-04-it-ou-created.png.png) |
+| IT OU | [View](../evidence/phase-02/phase2-04-it-ou-created.png) |
 | Employees OU | [View](../evidence/phase-02/phase2-05-employees-ou-created.png) |
 | Workstations OU | [View](../evidence/phase-02/phase2-06-workstations-ou-created.png) |
 | Servers OU | [View](../evidence/phase-02/phase2-07-servers-ou-created.png) |
@@ -65,18 +65,18 @@ I captured screenshots for each creation milestone, the completed six-OU tree, a
 
 ### PowerShell verification
 
-![PowerShell showing all six OUs and accidental deletion protection](../evidence/phase-02/phase2-10-ou-powershell-verification.png)
+![PowerShell listing the six OUs and their distinguished names](../evidence/phase-02/phase2-10-ou-powershell-verification.png)
 
 ## Security notes
 
 - An OU is a container and Group Policy targeting boundary; it does **not** grant administrative access by itself.
-- The `Security-Groups` OU is only a container at this stage; custom security groups have not yet been created.
+- This document records the initial OU build. A later milestone created `GG_IT_Support` and tested its delegated permissions; see [the RBAC case study](../case-studies/ad-rbac-delegated-password-reset.md).
 - Service identities and passwords have not yet been created.
 - The default Domain Controllers OU was preserved.
 - The screenshots were visually reviewed for obvious secrets before publication.
 
 ## Outcome and next steps
 
-**Completed:** Six top-level OUs created and verified with accidental-deletion protection.
+**Completed:** Six top-level OUs created and verified by name and distinguished name. Accidental-deletion protection is pending explicit property verification.
 
-**Next:** Create test users and role-based security groups; place domain-joined computers in the correct OUs; apply and validate Group Policy settings. Domain Controller health troubleshooting is documented separately in [the DFSR case study](../case-studies/dfsr-initialization-warning.md).
+**Next:** Place domain-joined computers in the correct OUs; apply and validate Group Policy settings. Domain Controller health troubleshooting is documented separately in [the DFSR case study](../case-studies/dfsr-initialization-warning.md).
